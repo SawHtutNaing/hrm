@@ -79,3 +79,8 @@ Happy coding with Metronic!
  Start the localhost server:
     
         php artisan serve
+
+
+to login 
+email             => 'demo@demo.com',
+password          => demo
