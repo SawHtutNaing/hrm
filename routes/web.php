@@ -9,6 +9,7 @@ use App\Http\Controllers\DivisionTypeController;
 use App\Http\Controllers\Documentation\LayoutBuilderController;
 use App\Http\Controllers\Documentation\ReferencesController;
 use App\Http\Controllers\EmploymentTypeController;
+use App\Http\Controllers\LeaveTypeController;
 use App\Http\Controllers\Logs\AuditLogsController;
 use App\Http\Controllers\Logs\SystemLogsController;
 use App\Http\Controllers\PagesController;
@@ -69,6 +70,7 @@ Route::post('staff/{id}/restore', [StaffController::class, 'restore'])->name('st
 Route::get('/get-cities/{country_id}', [CityController::class, 'getCitiesByCountry']);
 
 
+Route::resource('leave_types', LeaveTypeController::class);
 
 
 

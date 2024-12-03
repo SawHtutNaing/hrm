@@ -324,7 +324,7 @@ return array(
         // ),
             array(
             'title' => 'Divisions',
-            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/coding/cod003.svg", "svg-icon-2"),
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/coding/cod003.svg", "svg-icon-1"),
             'path'  => 'divisions.index',
         ),
         array(
@@ -334,17 +334,17 @@ return array(
         ),
         array(
             'title' => 'Departments',
-            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/coding/cod003.svg", "svg-icon-2"),
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/coding/cod003.svg", "svg-icon-3"),
             'path'  => 'departments.index',
         ),
         array(
             'title' => 'Positions',
-            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/coding/cod003.svg", "svg-icon-2"),
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/coding/cod003.svg", "svg-icon-4"),
             'path'  => 'positions.index',
         ),
         array(
             'title' => 'Payscales',
-            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/coding/cod003.svg", "svg-icon-2"),
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/coding/cod003.svg", "svg-icon-5"),
             'path'  => 'payscales.index',
         ),
 
@@ -359,6 +359,12 @@ return array(
             'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/coding/cod003.svg", "svg-icon-2"),
             'path'  => 'staffs.index',
         ),
+        array(
+            'title' => 'Leave Types',
+            'icon'  => theme()->getSvgIcon("demo1/media/icons/duotune/coding/cod003.svg", "svg-icon-2"),
+            'path'  => 'leave_types.index',
+        ),
+
         
     ),
 

@@ -92,7 +92,7 @@ class PositionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Position  $position
+     * @param  \App\Models\Position  
      * @return \Illuminate\Http\Response
      */
     public function destroy(Position $position)

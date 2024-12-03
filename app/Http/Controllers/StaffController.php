@@ -10,6 +10,7 @@ use App\Models\Department;
 use App\Models\EmploymentType;
 use App\Models\Position;
 use App\Models\Staff;
+use Storage;
 
 class StaffController extends Controller
 {
@@ -20,7 +21,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        $staff = Staff::all(); // Get all staff
+        $staff = Staff::all(); 
         return view('pages.staff.index', compact('staff'));
     }
 
@@ -55,11 +56,18 @@ class StaffController extends Controller
             'date_of_joining' => 'required|date',
             'position_id' => 'required|exists:positions,id',
             'department_id' => 'required|exists:departments,id',
-            // 'employmen_type_id' => 'required|exists:employment_types,id',
+            'profile_picture' => 'nullable|image|max:2048',
         ]);
+        $data = $request->all();
 
-        // Create staff record
-        Staff::create($request->all());
+        if ($request->hasFile('profile_picture')) {
+     
+          
+                  $data['profile_picture'] = $request->file('profile_picture')->store('profile_pictures', 'public');
+
+        }
+        
+        Staff::create($data);
      
 
         return redirect()->route('staffs.index')->with('success', 'Staff created successfully.');
@@ -73,7 +81,7 @@ class StaffController extends Controller
      */
     public function show(Staff $staff)
     {
-        //
+        
     }
 
     /**
@@ -108,9 +116,29 @@ class StaffController extends Controller
             'date_of_joining' => 'required|date',
             'position_id' => 'required|exists:positions,id',
             'department_id' => 'required|exists:departments,id',
-            // 'employmen_type_id' => 'required|exists:employment_types,id',
+            'profile_picture' => 'nullable|image|max:2048',
+
+            
         ]);
-        $staff->update($request->all());
+
+        $data = $request->all();
+
+     
+
+
+
+        if ($request->hasFile('profile_picture')) {
+            
+            if ($staff->profile_picture && Storage::disk('public')->exists($staff->profile_picture)) {
+                Storage::disk('public')->delete($staff->profile_picture);
+            }
+    
+            $data['profile_picture'] = $request->file('profile_picture')->store('profile_pictures', 'public');
+          
+        }
+            
+
+        $staff->update($data);
 
         return redirect()->route('staffs.index')->with('success', 'Staff updated successfully.');
     }
